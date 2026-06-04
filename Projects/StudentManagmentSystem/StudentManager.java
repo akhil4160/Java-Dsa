@@ -1,8 +1,14 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class StudentManager {
     ArrayList<Student> students = new ArrayList<>();
+
+    public StudentManager() {
+        loadFromFile();
+    }
 
     public void addStudent(Student s) {
         students.add(s);
@@ -77,14 +83,38 @@ public class StudentManager {
         try {
             FileWriter fw = new FileWriter("students.txt");
 
-            for(Student s : students) {
+            for (Student s : students) {
 
                 fw.write(s.rollNo + "," + s.name + "," + s.branch + "\n");
             }
 
             fw.close();
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Error Saving File");
+        }
+    }
+
+    public void loadFromFile() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("students.txt"));
+
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String parts[] = line.split(",");
+
+                int rollNo = Integer.parseInt(parts[0]);
+                String name = parts[1];
+                String branch = parts[2];
+
+                Student s = new Student(rollNo, name, branch);
+
+                students.add(s);
+            }
+
+            br.close();
+        } catch (Exception e) {
+            System.out.println("Error Loading File");
         }
     }
 }
