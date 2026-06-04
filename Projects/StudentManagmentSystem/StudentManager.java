@@ -81,7 +81,7 @@ public class StudentManager {
 
     public void saveToFile() {
         try {
-            FileWriter fw = new FileWriter("students.txt");
+            FileWriter fw = new FileWriter("StudentManagmentSystem/students.txt");
 
             for (Student s : students) {
 
@@ -96,7 +96,7 @@ public class StudentManager {
 
     public void loadFromFile() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("students.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("StudentManagmentSystem/students.txt"));
 
             String line;
 
