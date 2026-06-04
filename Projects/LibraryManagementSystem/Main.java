@@ -12,7 +12,7 @@ public class Main {
         while (true) {
             System.out.println("\n===== MENU =====");
             System.out.println("1. Add book");
-            System.out.println("2. Display Sbook");
+            System.out.println("2. Display book");
             System.out.println("3. Search book");
             System.out.println("4. Delete book");
             System.out.println("5. Issue Book");
